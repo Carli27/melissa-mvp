@@ -7,3 +7,4 @@ export default function SavedFavourites() {
 }
 
 
+// do I need primary key in init file if I remove ID 

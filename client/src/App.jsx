@@ -1,27 +1,29 @@
-import { useState } from 'react'
-import { Routes, Route, Link } from 'react-router-dom';
-import './App.css'
-import SavedFavourites from './components/SavedFavourites';
-import JourneyPlanner from './components/JourneyPlanner';
+import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import "./App.css";
+import SavedFavourites from "./components/SavedFavourites";
+import JourneyPlanner from "./components/JourneyPlanner";
 
 function App() {
   return (
     <>
       <Routes>
-      <Route path="/journeyplanner" element={<JourneyPlanner />} /> 
+        <Route path="/journeyplanner" element={<JourneyPlanner />} />
         <Route path="/savedfavourites" element={<SavedFavourites />} />
-      {/*   <Route path="*" element={<Error404View />} /> */}
+        {/*   <Route path="*" element={<Error404View />} /> */}
       </Routes>
 
-      <p>View your <Link to="/savedfavourites">Saved Favourites</Link>!</p>
-      <p>View your <Link to="/journeyplanner">Journey Planner</Link>!</p>
+      <p>
+        View your <Link to="/savedfavourites">Saved Favourites</Link>!
+      </p>
+      <p>
+        View your <Link to="/journeyplanner">Journey Planner</Link>!
+      </p>
     </>
   );
 }
 
 export default App;
-
-
 
 /* function App() {
   const [count, setCount] = useState(0)
@@ -52,10 +54,5 @@ export default App;
   )
 } */
 
-
 //<NavBar />
 //fetch(`api.tfl.gov.uk/Journey/JourneyResults/${postCodeOne}/to/${postCodeTwo}?mode=${mode}&app_key=${API_KEY}`)
-
-
-
-//back end - incorporate a database to save their fav journeys and keep a history of past journeys
