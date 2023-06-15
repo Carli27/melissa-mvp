@@ -3,6 +3,7 @@ My Bus Journey MVP
 ### Basic Requirments (to do everytime you open this project)
 
 - Run project directory from terminal input `cd client` then `npm run dev` to view the front end (local host browser view)
+- - Run `npm start` in project directory from terminal to start the Express server on port 4000
 
 ### 1. Dependencies
 
@@ -29,11 +30,15 @@ Ensure you created the env in the project folder and not a sub folder or the fil
 
 - Make sure you understand how the `favourites` table is constructed. In your MySQL console, you can run `use journey_planner;` and then `describe favourites;` to see the structure of the products table.
 
-- favourites will include a table with the following fields: name, from, to, fare and image
-
+- favourites will include a table with the following fields: name, start, end, mode, fare and image
+  //////ADD SCREEN SHOT FROM MY SQL
 - Everytime you make a change to the init_db_sql file you need to run `npm run migrate`
 
 ### Development
 
 - Run `npm start` in project directory to start the Express server on port 4000
 - In another terminal, in the project directory do `cd client` and run `npm run dev` to start the client in development mode with hot reloading in port 5173 (front end)
+
+// if the server is not working - check the package.json has the scaffodling e.g. this was just nodemon however updated to this: "start": "nodemon ./bin/www",
+
+// ctrl c to kill a server
