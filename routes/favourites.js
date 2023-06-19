@@ -10,7 +10,7 @@ const db = require("../model/helper"); // is this correct? Do I need model if so
 
 // Not tested on postman
 // Not sure what is the / is enough I think so its my local host
-// localhost400 - means /api/favourite app.js
+// localhost4000 - means /api/favourite app.js
 router.post("/", async function (req, res, next) {
   console.log("REQ.BODY"); // req.body is an object not needed
   try {
@@ -52,7 +52,7 @@ router.delete("/:id", async (req, res, next) => {
 });
 module.exports = router;
 
-//dsiaply all journeys
+//display all journeys
 router.get("/", async (req, res) => {
   try {
     let results = await db("SELECT * FROM favourites");
@@ -62,4 +62,3 @@ router.get("/", async (req, res) => {
     res.status(500).send({ error: "err.message" });
   }
 });
-// 1. Do I need users.js?
