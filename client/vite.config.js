@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://localhost:4000", // need to update 5000 for windows and 4000 mac
+        target: "http://localhost:4000", // need to update 5000 for windows and 4000 mac. To get a website running you would pay for someone to host and run a port 24/7
         changeOrigin: true,
         secure: false,
       },
