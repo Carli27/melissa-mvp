@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react"; // rfc to import
 import { Link } from "react-router-dom"; // need to import the link
 
 export default function SavedFavourites() {
-  const [savedFavourites, setSavedFavourites] = useState(null);
-
+  const [savedFavourites, setSavedFavourites] = useState([]); //can't have null here need an empty array
+  // map can only be used arrays
   // always runs when your pages loads
   // have to call getSavedFavourites as you can't name the same as the state e.g. SavedDFavourites which holding the data
   useEffect(() => {
@@ -28,12 +28,14 @@ export default function SavedFavourites() {
             <div className="card" style={{ width: "18rem" }}>
               <img src={journey.image} className="card-img-top rounded" />
               <div className="card-body">
-                <p className="card-text"> {journey.name}</p>
-                <p className="card-text"> {journey.start}</p>
-                <p className="card-text"> {journey.end}</p>
-                <p className="card-text"> {journey.mode}</p>
-                <p className="card-text"> {journey.fare}</p>
+                <p className="card-text"> Route: {journey.name}</p>
+                <p className="card-text"> Start: {journey.start}</p>
+                <p className="card-text"> End: {journey.end}</p>
+                <p className="card-text"> Mode:{journey.mode}</p>
+                <p className="card-text"> Cost: £{journey.fare}</p>
+                {/* how I the decimal place */}
                 <Link to={`/api/${journey.id}`}></Link>
+                <button>View Directions</button>
               </div>
             </div>
           </div>
@@ -56,4 +58,10 @@ export default function SavedFavourites() {
 4. getAllJourneys should make a fetch request to the get all jams endpoint in the backend (dont need to add http://localhost:4000 as this should be in the vite.config. Just what comes after that. Once you receive the data back (same as in postman) use the json() to parse it into js and finally store the data in the state using the setter **DONE
 5. map through the state to display saved journeys **DONE
 
+
+//QUESTIONS:
+
+putting the code pen code in root didn't work like the lecture but adding to the body it worked 
+
+https://codepen.io/P1N2O/pen/pyBNzX
 */
