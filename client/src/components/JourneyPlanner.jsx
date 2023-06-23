@@ -43,6 +43,23 @@ export default function JourneyPlanner() {
       });
   };
 
+  const save = async (journey) => {
+    const response = await fetch("/api", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: journey.name,
+        start: from,
+        end: to,
+        mode: mode,
+        fare: 0,
+      }),
+    });
+    const json = await response.json();
+    console.log(json);
+  };
   //use this to change it when it is done
   /*    useEffect(() => {
       handleSubmit();
@@ -81,19 +98,25 @@ export default function JourneyPlanner() {
 
         <button type="submit">Plan Journey</button>
       </form>
+      {journeyResults && (
+        <p> The mode(s) of transport available for this journey are:</p>
+      )}
       {journeyResults &&
         /*    <div> The bus number is {journeyResults.lines[0].name}
      </div> */
+        //  cant put a p tag before map (&& truthy and falsey value) needs to be in one statement e.g line 84 is where it is
+
         journeyResults.lines.map((l) => (
           <div key={l.id}>
-            The bus/buses available for this journey are:
-            <ul>
-              <li>{l.name}</li>
-            </ul>
+            <div>{l.name}</div>
             <div>
-              {" "}
-              The bus fare is £{journeyResults.journeys[0].fare.totalCost / 100}
+              The fare is £{journeyResults.journeys[0].fare.totalCost / 100}
             </div>
+            <div onClick={() => save(l)} className="pointer">
+              ❤️
+            </div>
+            <br />
+            <br />
           </div>
         ))}
     </div>

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react"; // rfc to import
 import { Link } from "react-router-dom"; // need to import the link
 
 export default function SavedFavourites() {
-  const [savedFavourites, setSavedFavourites] = useState([]); //can't have null here need an empty array
-  // map can only be used arrays
+  const [savedFavourites, setSavedFavourites] = useState([]); //can't have null here need an empty array. code is mapping through an empty array
+  // map can only be used for arrays
   // always runs when your pages loads
   // have to call getSavedFavourites as you can't name the same as the state e.g. SavedDFavourites which holding the data
   useEffect(() => {
@@ -32,8 +32,8 @@ export default function SavedFavourites() {
                 <p className="card-text"> Start: {journey.start}</p>
                 <p className="card-text"> End: {journey.end}</p>
                 <p className="card-text"> Mode:{journey.mode}</p>
-                <p className="card-text"> Cost: £{journey.fare}</p>
-                {/* how I the decimal place */}
+                {/* <p className="card-text"> Cost: £{journey.fare}</p> */}
+                {/* how I the decimal place.. */}
                 <Link to={`/api/${journey.id}`}></Link>
                 <button>View Directions</button>
               </div>

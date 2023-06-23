@@ -13,7 +13,7 @@ router.post("/", async function (req, res, next) {
   console.log("REQ.BODY");
   try {
     await db(
-      `INSERT INTO favourites (name, start, end, mode, fare, image) VALUES ("${req.body.name}","${req.body.start}","${req.body.end}", "${req.body.mode}", "${req.body.fare}", "${req.body.image}");` // need to pass both values with own brackets and $ seperated by comma
+      `INSERT INTO favourites (name, start, end, mode, fare) VALUES ("${req.body.name}","${req.body.start}","${req.body.end}", "${req.body.mode}", "${req.body.fare}");` // need to pass both values with own brackets and $ seperated by comma
     );
     const result = await db("SELECT * FROM favourites ORDER BY id ASC;");
     res.send(result.data);
@@ -70,3 +70,24 @@ http: router.get("/", async (req, res) => {
 // ensure you check app.js.
 
 // check the quotations
+
+/*
+    {
+        "id": 16,
+        "name": "38",
+        "start": "W1D 1BS",
+        "end": "E8 2NP",
+        "mode": "Bus",
+        "fare": 450,
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4gDMiyeROxPa3iZJLD-yZ-7XO18EY_wTXOQ&usqp=CAU"
+    },
+    {
+        "id": 17,
+        "name": "38",
+        "start": "W1D 1BS",
+        "end": "E8 2NP",
+        "mode": "Bus",
+        "fare": 450,
+        "image": "https://theaoi.com/wp-content/uploads/2018/02/La_Boca_MTG_300-376x600.jpg"
+    },
+*/

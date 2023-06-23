@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+li{
+
+    list-style-type: none;
+  
+}
+.pointer {
+  cursor: pointer;
+}
